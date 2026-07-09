@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Banco de dados: `uc11`
 --
 
+CREATE DATABASE UC11;
+USE UC11;
 -- --------------------------------------------------------
 
 --
@@ -37,7 +39,6 @@ CREATE TABLE `produtos` (
 --
 -- Extraindo dados da tabela `produtos`
 --
-
 INSERT INTO `produtos` (`id`, `nome`, `valor`, `status`) VALUES
 (2, 'PS4', 1500, 'Vendido'),
 (3, 'Xbox 360', 800, 'Vendido'),
