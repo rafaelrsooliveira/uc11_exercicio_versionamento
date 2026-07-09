@@ -55,7 +55,7 @@ INSERT INTO `produtos` (`id`, `nome`, `valor`, `status`) VALUES
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
---
+---
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
