@@ -36,7 +36,7 @@ CREATE TABLE `produtos` (
   `status` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
+---
 -- Extraindo dados da tabela `produtos`
 --
 INSERT INTO `produtos` (`id`, `nome`, `valor`, `status`) VALUES
