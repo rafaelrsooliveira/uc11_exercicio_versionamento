@@ -44,7 +44,7 @@ INSERT INTO `produtos` (`id`, `nome`, `valor`, `status`) VALUES
 (3, 'Xbox 360', 800, 'Vendido'),
 (4, 'Iphone 12', 4800, 'Vendido'),
 (5, 'PS2', 400, 'A Venda');
-
+--
 --
 -- Índices para tabelas despejadas
 --
