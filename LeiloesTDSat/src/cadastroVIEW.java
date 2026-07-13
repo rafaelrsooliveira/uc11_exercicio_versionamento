@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Adm
@@ -136,16 +139,40 @@ public class cadastroVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        ProdutosDTO produto = new ProdutosDTO();
-        String nome = cadastroNome.getText();
-        String valor = cadastroValor.getText();
-        String status = "A Venda";
-        produto.setNome(nome);
-        produto.setValor(Integer.parseInt(valor));
-        produto.setStatus(status);
-        
-        ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
+        try {
+            String nome = cadastroNome.getText().trim();
+            String valorStr = cadastroValor.getText().trim();
+
+            if (nome.isEmpty() || valorStr.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Preencha todos os campos.");
+                return;
+            }
+
+            int valor = Integer.parseInt(valorStr);
+            if (valor <= 0) {
+                JOptionPane.showMessageDialog(this, "Valor deve ser maior que zero.");
+                return;
+            }
+
+            ProdutosDTO produto = new ProdutosDTO();
+            produto.setNome(nome);
+            produto.setValor(valor);
+            produto.setStatus("A Venda");
+
+            ProdutosDAO produtodao = new ProdutosDAO();
+            boolean sucesso = produtodao.cadastrarProduto(produto);
+
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Produto cadastrado com sucesso!");
+                // Limpa os campos após cadastro
+                cadastroNome.setText("");
+                cadastroValor.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Falha ao cadastrar produto. Verifique os dados e tente novamente.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Valor inválido. Digite um número inteiro.");
+        }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
